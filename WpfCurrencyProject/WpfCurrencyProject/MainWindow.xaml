@@ -1,0 +1,14 @@
+﻿<Window x:Class="WpfCurrencyProject.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfCurrencyProject"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Button Click="ButtonRepo_Click" HorizontalAlignment="Left" Margin="0,33,-0.333,0" VerticalAlignment="Top" Width="519">Repo</Button>
+        <Button Click="ButtonMakeChange_Click" HorizontalAlignment="Left" Margin="0,53,-0.333,0" VerticalAlignment="Top" Width="519">MakeChange</Button>
+
+    </Grid>
+</Window>

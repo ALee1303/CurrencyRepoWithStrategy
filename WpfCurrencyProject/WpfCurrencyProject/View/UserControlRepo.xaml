@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="WpfCurrencyProject.View.UserControlRepo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfCurrencyProject.View"
+             mc:Ignorable="d" 
+             DataContext="CurrencyRepoViewModel"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <StackPanel Margin="8">
+            <StackPanel Orientation="Horizontal" Margin="8">
+                <Label>Total:</Label>
+                <TextBlock x:Name="RepoTotal" Text="{Binding RepoTotal, StringFormat=' {0:c}', Mode=OneWay}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <StackPanel.Resources>
+                    <Style TargetType="Control">
+                        <Setter Property="Margin" Value="5,0,5,0" />
+                    </Style>
+                </StackPanel.Resources>
+                <ComboBox x:Name="cbCoinName" Margin="5,0,5,0" ItemsSource="{Binding Path=CoinType}" DisplayMemberPath="Name" 
+                    SelectedItem="{Binding Path=CoinName}" >
+                </ComboBox>
+
+
+                <TextBox x:Name="tbNumCoins" Margin="5,0,5,0"  Text="{Binding CoinNum}"></TextBox>
+                <Button x:Name="AddCoin" Command="{Binding AddCoinCommand}"  Margin="5,0,5,0" >
+                    Add Coin
+                </Button>
+                <Button x:Name="Save" Height="22" Width="35" Command="{Binding SaveCommand}">Save</Button>
+                <Button x:Name="Load" Height="23" Width="35" Command="{Binding LoadCommand}" Content="Load" RenderTransformOrigin="0.5,0.5">
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="0.328"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

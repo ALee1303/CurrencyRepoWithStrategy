@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="WpfCurrencyProject.View.UserControlMakeChange"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfCurrencyProject.View"
+             mc:Ignorable="d"
+             DataContext="MakeChangeViewModel"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <DataTemplate x:Key="CoinTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Name}" FontWeight="Bold" Margin="0,0,5,0"/>
+                <TextBlock Text="{Binding MonetaryValue, StringFormat=' {0:c}'}"/>
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
+    
+    <Grid>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label>Amount:</Label>
+                <TextBox x:Name="Amount" Text="{Binding RepoTotal, StringFormat=' {0:c}'}"></TextBox>
+                <Button x:Name="MakeChange" Command="{Binding MakeChangeCommand}">Make Change</Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <ListView x:Name="lvCoins" ItemsSource="{Binding  Coins}" ItemTemplate="{StaticResource CoinTemplate}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button Width="36" Command="{Binding SaveChangeCommand}">Save</Button>
+                <Button Content="Load" Height="18" Width="37" Command="{Binding LoadChangeCommand}"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>
